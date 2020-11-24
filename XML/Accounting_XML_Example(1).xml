@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document version="1.0" type="Invoice" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XmlAcc.xsd">
-  <document_number>1003</document_number>
+<document version="1.0" type="Invoice" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Accounting_XML(1).xsd">
+  <document_number>1003</document_number>  <!--Reference to the ERP invoice Nr. which goes as a text field  in Ledger of the accounting system -->
   <document_date>2019/04/29</document_date>
   <document_printout_date>2019/04/29</document_printout_date>
-  <document_form_name>Invoice</document_form_name>
+  <document_form_name>Invoice</document_form_name> <!--Define the type of transaction-->
   <document_form_file>INV_LIS</document_form_file>
   <invoice_address>
     <title>Test</title>
@@ -21,7 +21,7 @@
     <customer_address>
       <title>Test</title>
       <name>LISEC Test Customer</name>
-      <address_1>Test City</address_1>
+      <address_1>Test City</address_1>  <!--Should be a National ID 10 digits could have following zero String-->
       <address_2>Test Country</address_2>
       <address_3>Test Address Line</address_3>
       <address_4>Test Address Line</address_4>
@@ -140,7 +140,7 @@
     <amounts>
       <net>152.63</net>
       <vat>30.53</vat>
-      <gross>183.16</gross>
+      <gross>183.16</gross>   <!--The amount transferred to an accounting system-->
       <details>
       </details>
       <general_ledger_accounts>
