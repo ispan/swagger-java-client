@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document version="1.0" type="Invoice" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XmlAcc.xsd">
+  <document_number>1003</document_number>
+  <document_date>2019/04/29</document_date>
+  <document_printout_date>2019/04/29</document_printout_date>
+  <document_form_name>Invoice</document_form_name>
+  <document_form_file>INV_LIS</document_form_file>
+  <invoice_address>
+    <title>Test</title>
+    <name>LISEC Test Customer</name>
+    <address_1>Test City</address_1>
+    <address_2>Test Country</address_2>
+    <address_3>Test Address Line</address_3>
+    <address_4>Test Address Line</address_4>
+    <post_code>T 1234</post_code>
+    <phone_number>0101/0101</phone_number>
+    <country>Austria</country>
+    <mobile_phone>0202/0202</mobile_phone>
+  </invoice_address>
+  <customer id="2">
+    <customer_address>
+      <title>Test</title>
+      <name>LISEC Test Customer</name>
+      <address_1>Test City</address_1>
+      <address_2>Test Country</address_2>
+      <address_3>Test Address Line</address_3>
+      <address_4>Test Address Line</address_4>
+      <post_code>T 1234</post_code>
+      <phone_number>0101/0101</phone_number>
+      <country>Austria</country>
+      <mobile_phone>0202/0202</mobile_phone>
+    </customer_address>
+    <currency_code>EUR</currency_code>
+    <country>Austria</country>
+  </customer>
+  <order order_no="1">
+    <order_header>
+      <order_entry_date>2019/04/29</order_entry_date>
+      <customer_order_date>2019/04/29</customer_order_date>
+      <site_id>TEST-SITE</site_id>
+      <stock_id>STOCK</stock_id>
+    </order_header>
+    <order_details>
+      <item_details item_no="1">
+        <item_text>4mm Float</item_text>
+        <item_type>E</item_type>
+        <width>600.00</width>
+        <height>900.00</height>
+        <quantity>2.00</quantity>
+        <uom_desc>pcs</uom_desc>
+        <unit_sqm>0.54</unit_sqm>
+        <unit_sqm_u>0.54000000</unit_sqm_u>
+        <item_sqm>1.08</item_sqm>
+        <item_sqm_u>1.08000000</item_sqm_u>
+        <unit_price_sqm>8.00</unit_price_sqm>
+        <unit_price>4.32</unit_price>
+        <item_price>8.64</item_price>
+        <cost_center>Single Glass</cost_center>
+        <vat_code>VAT</vat_code>
+      </item_details>
+      <item_details item_no="2">
+        <item_text>4mm Float</item_text>
+        <item_type>E</item_type>
+        <width>845.00</width>
+        <height>1256.00</height>
+        <quantity>2.00</quantity>
+        <uom_desc>pcs</uom_desc>
+        <unit_sqm>1.07</unit_sqm>
+        <unit_sqm_u>1.07100000</unit_sqm_u>
+        <item_sqm>2.14</item_sqm>
+        <item_sqm_u>2.14200000</item_sqm_u>
+        <unit_price_sqm>8.00</unit_price_sqm>
+        <unit_price>8.57</unit_price>
+        <item_price>17.14</item_price>
+        <cost_center>Single Glass</cost_center>
+        <vat_code>VAT</vat_code>
+      </item_details>
+      <item_details item_no="3">
+        <item_text>D G U 4+4   mm</item_text>
+        <item_type>I</item_type>
+        <width>550.00</width>
+        <height>869.00</height>
+        <quantity>1.00</quantity>
+        <uom_desc>pcs</uom_desc>
+        <unit_sqm>0.48</unit_sqm>
+        <unit_sqm_u>0.47850000</unit_sqm_u>
+        <item_sqm>0.48</item_sqm>
+        <item_sqm_u>0.47850000</item_sqm_u>
+        <unit_price_sqm>45.00</unit_price_sqm>
+        <unit_price>21.53</unit_price>
+        <item_price>21.53</item_price>
+        <cost_center>IG Elements</cost_center>
+        <vat_code>VAT</vat_code>
+      </item_details>
+      <item_details item_no="4">
+        <item_text>Standard IGU 4-12-4</item_text>
+        <item_type>F</item_type>
+        <width>845.00</width>
+        <height>556.00</height>
+        <quantity>2.00</quantity>
+        <uom_desc>pcs</uom_desc>
+        <unit_sqm>0.48</unit_sqm>
+        <unit_sqm_u>0.47600000</unit_sqm_u>
+        <item_sqm>0.95</item_sqm>
+        <item_sqm_u>0.95200000</item_sqm_u>
+        <unit_price_sqm>56.00</unit_price_sqm>
+        <unit_price>26.66</unit_price>
+        <item_price>53.32</item_price>
+        <cost_center>IG Elements</cost_center>
+        <vat_code>VAT</vat_code>
+      </item_details>
+      <item_details item_no="5">
+        <item_text>Dorma US10</item_text>
+        <item_type>V</item_type>
+        <width>1.00</width>
+        <quantity>2.00</quantity>
+        <uom_desc>pcs</uom_desc>
+        <unit_price_sqm>56.00</unit_price_sqm>
+        <unit_price>26.00</unit_price>
+        <item_price>52.00</item_price>
+        <cost_center>Ancillary</cost_center>
+        <vat_code>VAT</vat_code>
+      </item_details>
+      <discounts>
+        <details>
+        </details>
+      </discounts>
+      <surcharges>
+        <details>
+        </details>
+      </surcharges>
+      <order_total_net>152.63</order_total_net>
+      <order_total_weight>60.40</order_total_weight>
+      <order_total_sqm>4.62</order_total_sqm>
+      <order_total_qty>9.00</order_total_qty>
+      <order_final_invoice>1</order_final_invoice>
+    </order_details>
+  </order>
+  <document_totals>
+    <amounts>
+      <net>152.63</net>
+      <vat>30.53</vat>
+      <gross>183.16</gross>
+      <details>
+      </details>
+      <general_ledger_accounts>
+        <account id="1" description="Test">
+          <vat_account>1</vat_account>
+          <additional_tax_acc>1</additional_tax_acc>
+          <material_costs_acc>1</material_costs_acc>
+          <proc_costs_acc>1</proc_costs_acc>
+          <stock_account>1</stock_account>
+          <proc_stock_account>1</proc_stock_account>
+          <customer_account>1</customer_account>
+          <quantity>9.00</quantity>
+          <square_metre>4.62</square_metre>
+          <calculation_sqm>4.62</calculation_sqm>
+          <cost_centre>----</cost_centre>
+          <weight>60.40</weight>
+          <add_account1>1</add_account1>
+          <add_account2>1</add_account2>
+          <add_account3>1</add_account3>
+          <add_account4>1</add_account4>
+          <add_account5>1</add_account5>
+          <vat_details code="VAT">
+            <description>Standard sales tax</description>
+            <percentage>20.00</percentage>
+            <vat_amount>30.53</vat_amount>
+            <net_amount>152.63</net_amount>
+            <details>
+            </details>
+          </vat_details>
+        </account>
+      </general_ledger_accounts>
+      <vat_details>
+        <vat_details code="VAT">
+          <description>Standard sales tax</description>
+          <percentage>20.00</percentage>
+          <vat_amount>30.53</vat_amount>
+          <net_amount>152.63</net_amount>
+          <details>
+          </details>
+        </vat_details>
+      </vat_details>
+      <payment_terms>
+        <payment_date_base>2019/04/29</payment_date_base>
+        <days_net>30</days_net>
+        <payment_date_net>2019/05/29</payment_date_net>
+        <discount1 days="3">2</discount1>
+        <price_base>FOB</price_base>
+      </payment_terms>
+    </amounts>
+    <quantity>7</quantity>
+    <length>22.85</length>
+    <area>4.62</area>
+    <calulation_area>4.65</calulation_area>
+    <weight>60.4</weight>
+  </document_totals>
+</document>

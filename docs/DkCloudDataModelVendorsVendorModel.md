@@ -1,0 +1,51 @@
+
+# DkCloudDataModelVendorsVendorModel
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**number** | **String** |  |  [optional]
+**recordID** | **Integer** |  |  [optional]
+**created** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**modified** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**ssNumber** | **String** |  |  [optional]
+**name** | **String** |  |  [optional]
+**address1** | **String** |  |  [optional]
+**address2** | **String** |  |  [optional]
+**address3** | **String** |  |  [optional]
+**address4** | **String** |  |  [optional]
+**group** | **String** |  |  [optional]
+**tag** | **String** |  |  [optional]
+**blocked** | **Boolean** |  |  [optional]
+**approve** | [**DkCloudDataModelVendorsVendorApprove**](DkCloudDataModelVendorsVendorApprove.md) |  |  [optional]
+**creditMax** | **Double** |  |  [optional]
+**creditLimit** | **Double** |  |  [optional]
+**bankInfo** | [**DkCloudDataModelGeneralBankAccountModel**](DkCloudDataModelGeneralBankAccountModel.md) |  |  [optional]
+**handleBankInfo** | [**DkCloudDataModelGeneralBankAccountModel**](DkCloudDataModelGeneralBankAccountModel.md) |  |  [optional]
+**zipCode** | **String** |  |  [optional]
+**city** | **String** |  |  [optional]
+**phone** | **String** |  |  [optional]
+**phoneLocal** | **String** |  |  [optional]
+**phoneMobile** | **String** |  |  [optional]
+**fax** | **String** |  |  [optional]
+**countryCode** | **String** |  |  [optional]
+**countyCode** | **String** |  |  [optional]
+**email** | **String** |  |  [optional]
+**discount** | **Double** |  |  [optional]
+**paymentMode** | **String** |  |  [optional]
+**paymentTerm** | **String** |  |  [optional]
+**currencyCode** | **String** |  |  [optional]
+**currencyFixed** | **Boolean** |  |  [optional]
+**useCurrency** | **Boolean** |  |  [optional]
+**noVat** | **Boolean** |  |  [optional]
+**vaTNumber** | **String** |  |  [optional]
+**disableTax** | **Boolean** |  |  [optional]
+**ledgerCode** | **String** |  |  [optional]
+**balance** | **Double** |  |  [optional]
+**dimmentions** | [**DkCloudDataModelVendorsVendorDimmentions**](DkCloudDataModelVendorsVendorDimmentions.md) |  |  [optional]
+**expenses** | [**DkCloudDataModelVendorsVendorExpenses**](DkCloudDataModelVendorsVendorExpenses.md) |  |  [optional]
+**attachments** | [**List&lt;DkCloudDataModelGeneralAttachmentModel&gt;**](DkCloudDataModelGeneralAttachmentModel.md) |  |  [optional]
+**memos** | [**List&lt;DkCloudDataModelVendorsVendorMemoModel&gt;**](DkCloudDataModelVendorsVendorMemoModel.md) |  |  [optional]
+
+
+

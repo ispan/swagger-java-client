@@ -1,0 +1,85 @@
+
+=======================CURL===================
+
+
+Creating  a journal and Posting Registraton  directly to a customer ( customer ID: "0101010101")
+
+Request URL
+https://api.dkplus.is/api/v1/generalLedger/journal
+
+
+body
+
+{
+  "Code": "swager",
+  "Description": "Test",
+  "Option": {
+    "Post": true,
+    "GenerateVoucher": true
+  },
+  "Lines": [
+    {
+      "Account": "0101010101",
+      "Amount": 1000,
+      "Currency": "ISK",
+      "Date": "2020-11-23T07:52:56.364Z",
+      "DueDate": "2020-11-23T07:52:56.364Z",
+      "Dim1": "string",
+      "Reference": "string",
+      "Text": "string",
+      "Type": "Customer",
+      "Properties": {}
+    },
+ {
+      "Account": "7810",
+      "Amount": -1000,
+      "Currency": "ISK",
+      "Date": "2020-11-23T07:52:56.364Z",
+      "DueDate": "2020-11-23T07:52:56.364Z",
+      "Dim1": "string",
+      "Reference": "string",
+      "Text": "string",
+      "Type": "GeneralLedger",
+      "Properties": {}
+    }
+  ],
+  "Properties": {}
+}
+
+
+
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'Authorization: bearer 928c422d-30b0-44c0-8d98-812d64a397c3' -d '{ \ 
+   "Code": "swager", \ 
+   "Description": "Test", \ 
+   "Option": { \ 
+     "Post": true, \ 
+     "GenerateVoucher": true \ 
+   }, \ 
+   "Lines": [ \ 
+     { \ 
+       "Account": "0003", \ 
+       "Amount": 1000, \ 
+       "Currency": "ISK", \ 
+       "Date": "2020-11-23T07:52:56.364Z", \ 
+       "DueDate": "2020-11-23T07:52:56.364Z", \ 
+       "Dim1": "string", \ 
+       "Reference": "string", \ 
+       "Text": "string",      \ 
+       "Type": "Customer", \ 
+       "Properties": {} \ 
+     }, \ 
+  { \ 
+       "Account": "7810", \ 
+       "Amount": -1000, \ 
+       "Currency": "ISK", \ 
+       "Date": "2020-11-23T07:52:56.364Z", \ 
+       "DueDate": "2020-11-23T07:52:56.364Z", \ 
+       "Dim1": "string", \ 
+       "Reference": "string", \ 
+       "Text": "string",      \ 
+       "Type": "GeneralLedger", \ 
+       "Properties": {} \ 
+     } \ 
+   ], \ 
+   "Properties": {} \ 
+ }' 'https://api.dkplus.is/api/v1/generalLedger/journal'

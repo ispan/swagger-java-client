@@ -1,0 +1,33 @@
+<RestClientRequest>
+  <option name="biscuits">
+    <list />
+  </option>
+  <option name="httpMethod" value="GET" />
+  <option name="urlBase" value="https://api.dkplus.is" />
+  <option name="urlPath" value="/api/v1/company/connection" />
+  <option name="headers">
+    <list>
+      <KeyValuePair>
+        <option name="key" value="Accept" />
+        <option name="value" value="*/*" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="Cache-Control" />
+        <option name="value" value="no-cache" />
+      </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="Authorization" />
+        <option name="value" value="Bearer 928c422d-30b0-44c0-8d98-812d64a397c3" />
+      </KeyValuePair>
+    </list>
+  </option>
+  <option name="parameters">
+    <list />
+  </option>
+  <option name="parametersEnabled" value="true" />
+  <option name="haveTextToSend" value="false" />
+  <option name="haveFileToSend" value="false" />
+  <option name="isFileUpload" value="false" />
+  <option name="textToSend" value="{   &quot;Code&quot;: &quot;swager&quot;,   &quot;Description&quot;: &quot;Test&quot;,   &quot;Option&quot;: {     &quot;Post&quot;: true,     &quot;GenerateVoucher&quot;: true   },   &quot;Lines&quot;: [     {       &quot;Account&quot;: &quot;0101010101&quot;,       &quot;Amount&quot;: 1000,       &quot;Currency&quot;: &quot;ISK&quot;,       &quot;Date&quot;: &quot;2020-11-23T07:52:56.364Z&quot;,       &quot;DueDate&quot;: &quot;2020-11-23T07:52:56.364Z&quot;,       &quot;Dim1&quot;: &quot;string&quot;,       &quot;Reference&quot;: &quot;string&quot;,       &quot;Text&quot;: &quot;string&quot;,            &quot;Type&quot;: &quot;Customer&quot;,       &quot;Properties&quot;: {}     },  {       &quot;Account&quot;: &quot;7810&quot;,       &quot;Amount&quot;: -1000,       &quot;Currency&quot;: &quot;ISK&quot;,       &quot;Date&quot;: &quot;2020-11-23T07:52:56.364Z&quot;,       &quot;DueDate&quot;: &quot;2020-11-23T07:52:56.364Z&quot;,       &quot;Dim1&quot;: &quot;string&quot;,       &quot;Reference&quot;: &quot;string&quot;,       &quot;Text&quot;: &quot;string&quot;,            &quot;Type&quot;: &quot;GeneralLedger&quot;,       &quot;Properties&quot;: {}     }   ],   &quot;Properties&quot;: {} }" />
+  <option name="filesToSend" value="" />
+</RestClientRequest>

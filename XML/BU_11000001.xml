@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document version="1.0" type="Credit note" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XmlAcc.xsd">
+  <document_number>11000001</document_number>
+  <document_date>2020/09/25</document_date>
+  <document_printout_date>2020/09/25</document_printout_date>
+  <document_form_name>CreditNote</document_form_name>
+  <document_form_file>QUOTE</document_form_file>
+  <invoice_address>
+    <name>LISEC</name>
+    <address_1>STJEPANA RADIĆA BB</address_1>
+    <address_2>VITEZ</address_2>
+    <address_3>VITEZ, STJEPANA RADIĆA BB</address_3>
+    <address_4>xxxxxxxxxx</address_4>
+    <address_5>xxxxxxxxxxx</address_5>
+    <address_6>VL.RUŽIĆ DAVOR</address_6>
+    <address_7>19070511</address_7>
+    <phone_number>713-587.063/335-729</phone_number>
+    <country>BIH</country>
+    <province>ZSB</province>
+  </invoice_address>
+  <customer id="577">
+    <customer_address>
+      <name>LISEC</name>
+      <address_1>STJEPANA RADIĆA BB</address_1>
+      <address_2>VITEZ</address_2>
+      <address_3>VITEZ, STJEPANA RADIĆA BB</address_3>
+      <address_4>xxxxxxxxxx</address_4>
+      <address_5>xxxxxxxxxx</address_5>
+      <address_6>VL.RUŽIĆ DAVOR</address_6>
+      <address_7>xxxxxxxxx</address_7>
+      <phone_number>713-587.063/335-729</phone_number>
+      <country>BIH</country>
+      <province>ZSB</province>
+    </customer_address>
+    <currency_code>BAM</currency_code>
+    <country>BIH</country>
+  </customer>
+  <order order_no="11000001">
+    <order_header>
+      <order_entry_date>2020/09/25</order_entry_date>
+      <customer_order_date>2020/09/25</customer_order_date>
+      <site_id>SITE_TEST</site_id>
+      <stock_id>SITE_TEST</stock_id>
+    </order_header>
+    <order_details>
+      <item_details item_no="1">
+        <item_text>2716  IZO FLOAT 4/16/4 FLOAT</item_text>
+        <item_type>F</item_type>
+        <width>500.00</width>
+        <height>500.00</height>
+        <quantity>1.00</quantity>
+        <uom_desc>Stk</uom_desc>
+        <unit_sqm>0.25</unit_sqm>
+        <unit_sqm_u>0.25000000</unit_sqm_u>
+        <item_sqm>0.25</item_sqm>
+        <item_sqm_u>0.25000000</item_sqm_u>
+        <unit_price_sqm>23.10</unit_price_sqm>
+        <unit_price>5.78</unit_price>
+        <item_price>5.78</item_price>
+        <vat_code>TVA</vat_code>
+      </item_details>
+      <item_details item_no="2">
+        <item_text>071022 IZO L4/10+Ar/F4/22+Ar/4L</item_text>
+        <item_type>F</item_type>
+        <width>500.00</width>
+        <height>500.00</height>
+        <quantity>1.00</quantity>
+        <uom_desc>Stk</uom_desc>
+        <unit_sqm>0.25</unit_sqm>
+        <unit_sqm_u>0.25000000</unit_sqm_u>
+        <item_sqm>0.25</item_sqm>
+        <item_sqm_u>0.25000000</item_sqm_u>
+        <unit_price_sqm>72.65</unit_price_sqm>
+        <unit_price>18.16</unit_price>
+        <item_price>18.16</item_price>
+        <vat_code>TVA</vat_code>
+      </item_details>
+      <discounts>
+        <details>
+        </details>
+      </discounts>
+      <surcharges>
+        <details>
+        </details>
+      </surcharges>
+      <order_total_net>23.94</order_total_net>
+      <order_total_weight>13.41</order_total_weight>
+      <order_total_sqm>0.50</order_total_sqm>
+      <order_total_qty>2.00</order_total_qty>
+      <order_final_invoice>1</order_final_invoice>
+    </order_details>
+  </order>
+  <document_totals>
+    <amounts>
+      <net>23.94</net>
+      <vat>4.07</vat>
+      <gross>28.01</gross>
+      <details>
+      </details>
+      <vat_details>
+        <vat_details code="TVA">
+          <percentage>17.000000</percentage>
+          <vat_amount>4.07</vat_amount>
+          <net_amount>23.94</net_amount>
+          <details>
+          </details>
+        </vat_details>
+      </vat_details>
+    </amounts>
+    <quantity>2</quantity>
+    <length>4</length>
+    <area>0.5</area>
+    <calulation_area>0.5</calulation_area>
+    <weight>13.41</weight>
+  </document_totals>
+</document>

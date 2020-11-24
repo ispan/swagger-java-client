@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="document" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!-- XML standard accounting interface -->
+<!-- XSD schema file                   -->
+<!-- version 0.3                       -->
+
+
+<!-- ELEMENT DEFINITIONS -->
+
+<!-- address fields -->
+<xs:group name="address_grp">
+  <xs:sequence>
+    <xs:element name="title" type="xs:string" minOccurs="0" />
+    <xs:element name="name" type="xs:string" minOccurs="0" />
+    <xs:element name="address_1" type="xs:string" minOccurs="0" />
+    <xs:element name="address_2" type="xs:string" minOccurs="0" />
+    <xs:element name="address_3" type="xs:string" minOccurs="0" />
+    <xs:element name="address_4" type="xs:string" minOccurs="0" />
+    <xs:element name="address_5" type="xs:string" minOccurs="0" />
+    <xs:element name="address_6" type="xs:string" minOccurs="0" />
+    <xs:element name="address_7" type="xs:string" minOccurs="0" />
+    <xs:element name="post_code" type="xs:string" minOccurs="0" />
+    <xs:element name="phone_number" type="xs:string" minOccurs="0" />
+    <xs:element name="fax_number" type="xs:string" minOccurs="0" />
+    <xs:element name="email" type="xs:string" minOccurs="0" />
+	<xs:element name="country" type="xs:string" minOccurs="0" />
+	<xs:element name="province" type="xs:string" minOccurs="0" />
+	<xs:element name="latitude" type="xs:string" minOccurs="0" />
+	<xs:element name="longitude" type="xs:string" minOccurs="0" />
+	<xs:element name="mobile_phone" type="xs:string" minOccurs="0" />
+  </xs:sequence>
+</xs:group>
+
+<!-- id and description attributes -->
+<xs:attributeGroup name="id_desc_attr">
+  <xs:attribute name="id" type="xs:string" />
+  <xs:attribute name="description" type="xs:string" />
+</xs:attributeGroup>
+
+<!-- sales representative: attribute name & text content -->
+<xs:complexType name="sales_rep_content">
+  <xs:simpleContent>
+    <xs:extension base="xs:long">
+      <xs:attribute name="name" type="xs:string" />
+    </xs:extension>
+  </xs:simpleContent>
+</xs:complexType>
+
+<!-- surcharges/discounts data -->
+<xs:complexType name="surch_disc">
+  <xs:sequence>
+    <xs:element name="amount" type="xs:double" minOccurs="0" />
+    <xs:element name="details" minOccurs="0">
+      <xs:complexType>
+        <xs:sequence minOccurs="0" maxOccurs="10">
+          <xs:element name="percentage" type="xs:double" minOccurs="0" />
+          <xs:element name="idnr" type="xs:int" minOccurs="0" />
+          <xs:element name="description" type="xs:string" minOccurs="0" />
+          <xs:element name="discount" type="xs:double" minOccurs="0" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>
+</xs:complexType>
+
+<!-- details of document totals -->
+<xs:complexType name="details_grp_content">
+  <xs:simpleContent>
+    <xs:extension base="xs:double">
+
+      <xs:attribute name="included_in_net">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="yes|no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+
+    </xs:extension>
+  </xs:simpleContent>
+</xs:complexType>
+
+<xs:group name="details_grp">
+  <xs:sequence>
+    <xs:element name="transport_insurance" type="details_grp_content" minOccurs="0" />
+    <xs:element name="dgu_recycle_amount" type="details_grp_content" minOccurs="0" />
+    <xs:element name="energy_wght_amount" type="details_grp_content" minOccurs="0" />
+    <xs:element name="road_tax1_amount" type="details_grp_content" minOccurs="0" />
+    <xs:element name="road_tax2_amount" type="details_grp_content" minOccurs="0" />
+    <xs:element name="inflation_suppl" type="details_grp_content" minOccurs="0" />
+    <xs:element name="transport_costs" type="details_grp_content" minOccurs="0" />
+    <xs:element name="packing_costs" type="details_grp_content" minOccurs="0" />
+    <xs:element name="general_costs" type="details_grp_content" minOccurs="0" />
+    <xs:element name="invoice_costs" type="details_grp_content" minOccurs="0" />
+    <xs:element name="payment_costs" type="details_grp_content" minOccurs="0" />
+    <xs:element name="credit_insurance" type="details_grp_content" minOccurs="0" />
+    <xs:element name="additional_tax" type="details_grp_content" minOccurs="0" />
+    <xs:element name="order_discounts" type="details_grp_content" minOccurs="0" />
+    <xs:element name="order_surcharges" type="details_grp_content" minOccurs="0" />
+    <xs:element name="guarantee" type="details_grp_content" minOccurs="0" />
+  </xs:sequence>
+</xs:group>
+
+<!-- vat details -->
+<xs:complexType name="vat_details_type">
+  <xs:sequence>
+
+    <xs:element name="description" type="xs:string" minOccurs="0" />
+    <xs:element name="percentage" type="xs:double" minOccurs="0" />
+    <xs:element name="vat_amount" type="xs:double" minOccurs="0" />
+    <xs:element name="net_amount" type="xs:double" minOccurs="0" />
+
+    <!-- details -->
+    <xs:element name="details" minOccurs="0" maxOccurs="unbounded">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:group ref="details_grp" minOccurs="0" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+
+  </xs:sequence>
+
+  <!-- vat details attributes -->
+  <xs:attribute name="code" type="xs:string" />
+
+</xs:complexType>
+
+<!-- discount: attribute days & text content -->
+<xs:complexType name="discount_content">
+  <xs:simpleContent>
+    <xs:extension base="xs:double">
+      <xs:attribute name="days" type="xs:int" />
+    </xs:extension>
+  </xs:simpleContent>
+</xs:complexType>
+
+<!-- text: text_lines content -->
+<xs:complexType name="text_line_type" >
+  <xs:simpleContent>
+    <xs:extension base="xs:string" >
+      <xs:attribute name="row" type="xs:int" />
+      <xs:attribute name="usage" type="xs:int" use="optional" />
+    </xs:extension>
+  </xs:simpleContent>
+</xs:complexType>
+<xs:complexType name="text_type" >
+  <xs:sequence>
+    <xs:element type="text_line_type" name="text_line" maxOccurs="unbounded" minOccurs="0" />
+  </xs:sequence>
+</xs:complexType>
+
+<!-- price_details: sales/purchase price details -->
+  <xs:complexType name="pd_cost_set_type" >
+    <xs:sequence>
+      <xs:element name="quantity" type="xs:double" minOccurs="0" />
+      <xs:element name="quantity_uom" type="xs:string" minOccurs="0" />
+      <xs:element name="net_price" type="xs:double" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pd_cost_sets_type" >
+    <xs:sequence>
+      <xs:element name="cost_set" type="pd_cost_set_type" maxOccurs="2" minOccurs="0" />
+    </xs:sequence>
+    <xs:attribute name="set" type="xs:int" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="price_detail_type" >
+    <xs:sequence>
+      <xs:element name="idnr" type="xs:int" minOccurs="0" />
+      <xs:element name="description" type="xs:string" minOccurs="0" />
+      <xs:element name="quantity" type="xs:double" minOccurs="0" />
+      <xs:element name="quantity_uom" type="xs:string" minOccurs="0" />
+      <xs:element name="gross_price" type="xs:double" minOccurs="0" />
+      <xs:element name="discount_perc" type="xs:double" minOccurs="0" />
+      <xs:element name="net_price" type="xs:double" minOccurs="0" />
+      <xs:element name="cost_sets" type="pd_cost_sets_type" minOccurs="0" />
+    </xs:sequence>
+    <xs:attribute name="type" type="xs:int" />
+    <xs:attribute name="sequence" type="xs:int" />
+    <xs:attribute name="component_seq" type="xs:int" />
+    <xs:attribute name="process_seq" type="xs:int" />
+  </xs:complexType>
+  <xs:complexType name="price_details_type" >
+    <xs:sequence>
+      <xs:element name="price_detail" type="price_detail_type" maxOccurs="unbounded" minOccurs="0" />
+    </xs:sequence>
+    <xs:attribute name="type" type="xs:string" use="optional" />
+  </xs:complexType>
+
+<!--cost set data for general ledger accounts -->
+  <xs:complexType name="cost_set_type" >
+    <xs:sequence>
+      <xs:element name="material_costs" type="xs:double" minOccurs="0" />
+      <xs:element name="process_costs" type="xs:double" minOccurs="0" />
+      <xs:element name="production_costs" type="xs:double" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cost_sets_type" >
+    <xs:sequence>
+      <xs:element name="cost_set" type="cost_set_type" maxOccurs="2" minOccurs="0" />
+    </xs:sequence>
+    <xs:attribute name="set" type="xs:int" use="optional" />
+  </xs:complexType>
+
+<!-- DOCUMENT: ROOT ELEMENT -->
+<xs:element name="document">
+  <xs:complexType>
+    <xs:sequence>
+        <!-- general document data -->
+        <xs:element name="document_number" type="xs:long" />
+        <xs:element name="document_date" type="xs:string" minOccurs="0" />
+        <xs:element name="document_printout_date" type="xs:string" minOccurs="0" />
+        <xs:element name="document_form_name" type="xs:string" minOccurs="0" />
+        <xs:element name="document_form_file" type="xs:string" minOccurs="0" />
+
+        <!-- invoice address fields -->
+        <xs:element name="invoice_address">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="address_grp" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- customer section -->
+        <xs:element name="customer">
+          <xs:complexType>
+            <xs:sequence>
+              <!-- customer address fields -->
+              <xs:element name="customer_address">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:group ref="address_grp" minOccurs="0" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+
+              <!-- general customer data -->
+              <xs:element name="currency_code" type="xs:string" minOccurs="0" />
+              <xs:element name="bank" type="xs:string" minOccurs="0" />
+              <xs:element name="bank_account" type="xs:string" minOccurs="0" />
+              <xs:element name="control_number" type="xs:int" minOccurs="0" />
+              <xs:element name="contact_person" type="xs:string" minOccurs="0" />
+              <xs:element name="EEC_registration" type="xs:string" minOccurs="0" />
+              <xs:element name="country" type="xs:string" minOccurs="0" />
+              <xs:element name="vat_registration" type="xs:string" minOccurs="0" />
+              <xs:element name="accounting_acc" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+
+            <!-- customer attributes -->
+            <xs:attribute name="id" type="xs:long" />
+
+          </xs:complexType>
+        </xs:element>
+        <!-- END customer section -->
+
+        <!-- order section -->
+        <xs:element name="order" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+
+              <!-- order header -->
+              <xs:element name="order_header">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="order_entry_date" type="xs:string" minOccurs="0" />
+                    <xs:element name="delivery_date" type="xs:string" minOccurs="0" />
+                    <xs:element name="customer_order_number" type="xs:string" minOccurs="0" />
+                    <xs:element name="customer_order_date" type="xs:string" minOccurs="0" />
+                    <xs:element name="project" type="xs:string" minOccurs="0" />
+                    <xs:element name="site_id" type="xs:string" minOccurs="0" />
+                    <xs:element name="stock_id" type="xs:string" minOccurs="0" />
+                    <xs:element name="sales_rep1" type="sales_rep_content" minOccurs="0" />
+                    <xs:element name="sales_rep2" type="sales_rep_content" minOccurs="0" />
+                    <xs:element name="text" type="text_type" minOccurs="0" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <!-- END order header -->
+			  
+			  <!-- delivery details -->
+			  <xs:element name="delivery_details" minOccurs="0">
+			    <xs:complexType>
+				  <xs:sequence>
+				    <xs:element name="customer_delivery_date" type="xs:string" minOccurs="0" />
+					<xs:element name="transport_costs" type="xs:double" minOccurs="0" />
+					<xs:element name="packing_costs" type="xs:double" minOccurs="0" />
+					<xs:element name="general_costs" type="xs:double" minOccurs="0" />
+				  </xs:sequence>
+				</xs:complexType>
+			  </xs:element>
+			  <!-- END delivery details -->
+
+              <!-- order details -->
+              <xs:element name="order_details">
+                <xs:complexType>
+                  <xs:sequence>
+
+                    <!-- item details -->
+                    <xs:element name="item_details" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="item_text" type="xs:string" minOccurs="0" />
+                          <xs:element name="item_type" type="xs:string" minOccurs="0"  />
+                          <xs:element name="width" type="xs:double" minOccurs="0" />
+                          <xs:element name="height" type="xs:double" minOccurs="0" />
+                          <xs:element name="quantity" type="xs:double" minOccurs="0" />
+                          <xs:element name="uom_id" type="xs:int" minOccurs="0" />
+                          <xs:element name="uom_desc" type="xs:string" minOccurs="0" />
+                          <xs:element name="unit_sqm" type="xs:double" minOccurs="0" />
+                          <xs:element name="unit_sqm_u" type="xs:double" minOccurs="0" />
+                          <xs:element name="item_sqm" type="xs:double" minOccurs="0" />
+                          <xs:element name="item_sqm_u" type="xs:double" minOccurs="0" />
+                          <xs:element name="unit_price_sqm" type="xs:double" minOccurs="0" />
+                          <xs:element name="unit_price" type="xs:double" minOccurs="0" />
+                          <xs:element name="item_price" type="xs:double" minOccurs="0" />
+                          <xs:element name="cost_center" type="xs:string" minOccurs="0" />
+                          <xs:element name="shape_no" type="xs:int" minOccurs="0" />
+                          <xs:element name="vat_code" type="xs:string" minOccurs="0" />
+                          <xs:element name="cust_item_no" type="xs:string" minOccurs="0" />
+                          <xs:element name="commission" type="xs:string" minOccurs="0" />
+                          <xs:element name="product_group" type="xs:string" minOccurs="0" />
+                          <xs:element name="text" type="text_type" minOccurs="0" />
+                        <xs:element name="price_details" type="price_details_type"  maxOccurs="unbounded" minOccurs="0"/>
+                        </xs:sequence>
+
+                        <!-- item detail attributes -->
+                        <xs:attribute name="item_no" type="xs:int" />
+
+                      </xs:complexType>
+                    </xs:element>
+
+                    <xs:element name="discounts" type="surch_disc" minOccurs="0" />
+                    <xs:element name="surcharges" type="surch_disc" minOccurs="0" />
+                    <xs:element name="order_total_net" type="xs:double" minOccurs="0" />
+                    <xs:element name="order_total_weight" type="xs:double" minOccurs="0" />
+                    <xs:element name="order_total_sqm" type="xs:double" minOccurs="0" />
+                    <xs:element name="order_total_qty" type="xs:double" minOccurs="0" />
+                    <xs:element name="order_final_invoice" type="xs:int" minOccurs="0" />
+
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <!-- END order details -->
+
+            </xs:sequence>
+
+            <!-- order attributes -->
+            <xs:attribute name="order_no" type="xs:long" />
+			<xs:attribute name="delivery_note_no" type="xs:long" use="optional" />
+
+          </xs:complexType>
+        </xs:element>
+        <!-- END order section -->
+
+      <!-- document totals -->
+      <xs:element name="document_totals">
+        <xs:complexType>
+          <xs:sequence>
+
+            <!-- amounts -->
+            <xs:element name="amounts">
+              <xs:complexType>
+                <xs:sequence>
+
+                  <!-- general amounts data -->
+                  <xs:element name="net" type="xs:double" minOccurs="0" />
+                  <xs:element name="vat" type="xs:double" minOccurs="0" />
+                  <xs:element name="gross" type="xs:double" minOccurs="0" />
+
+                  <!-- document details data -->
+                  <xs:element name="details">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:group ref="details_grp" minOccurs="0" />
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+
+                  <!-- general ledger accounts -->
+                  <xs:element name="general_ledger_accounts" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+
+                        <!-- account -->
+                        <xs:element name="account" minOccurs="0" maxOccurs="unbounded">
+                          <xs:complexType>
+
+                            <!-- account data -->
+                            <xs:sequence>
+                              <xs:element name="vat_account" type="xs:double" minOccurs="0" />
+                              <xs:element name="additional_tax_acc" type="xs:double" minOccurs="0" />
+                              <xs:element name="material_costs_acc" type="xs:double" minOccurs="0" />
+                              <xs:element name="proc_costs_acc" type="xs:double" minOccurs="0" />
+                              <xs:element name="stock_account" type="xs:double" minOccurs="0" />
+                              <xs:element name="proc_stock_account" type="xs:double" minOccurs="0" />
+                              <xs:element name="customer_account" type="xs:double" minOccurs="0" />
+                              <xs:element name="quantity" type="xs:double" minOccurs="0" />
+                              <xs:element name="square_metre" type="xs:double" minOccurs="0" />
+                              <xs:element name="calculation_sqm" type="xs:double" minOccurs="0" />
+                              <xs:element name="commission_sales_rep" type="xs:double" minOccurs="0" />
+                              <xs:element name="cost_centre" type="xs:string" minOccurs="0" />
+                              <xs:element name="weight" type="xs:double" minOccurs="0" />
+                              <xs:element name="add_account1" type="xs:double" minOccurs="0" />
+                              <xs:element name="add_account2" type="xs:double" minOccurs="0" />
+                              <xs:element name="add_account3" type="xs:double" minOccurs="0" />
+                              <xs:element name="add_account4" type="xs:double" minOccurs="0" />
+                              <xs:element name="add_account5" type="xs:double" minOccurs="0" />
+                              <xs:element name="material_costs" type="xs:double" minOccurs="0" />
+                              <xs:element name="process_costs" type="xs:double" minOccurs="0" />
+                              <xs:element name="production_costs" type="xs:double" minOccurs="0" />
+                              <xs:element name="cost_sets" type="cost_sets_type" minOccurs="0" />
+
+                              <!-- vat details -->
+                              <xs:element name="vat_details" type="vat_details_type" minOccurs="0" maxOccurs="unbounded" />
+
+                            </xs:sequence>
+
+                            <!-- account attributes -->
+                            <xs:attributeGroup ref="id_desc_attr"/>
+
+                          </xs:complexType>
+                        </xs:element>
+                        <!-- END account -->
+
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <!-- END general ledger accounts -->
+
+                  <!-- general vat details -->
+                  <xs:element name="vat_details" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+
+                        <!-- vat details -->
+                        <xs:element name="vat_details" type="vat_details_type" minOccurs="0" maxOccurs="unbounded" />
+
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+
+                  <!-- payment terms -->
+                  <xs:element name="payment_terms" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+
+                        <xs:element name="info" type="xs:string" minOccurs="0" />
+                                                <xs:element name="payment_date_base" type="xs:string" minOccurs="0" />
+                                                <xs:element name="days_net" type="xs:int" minOccurs="0" />
+                                                <xs:element name="payment_date_net" type="xs:string" minOccurs="0" />
+                        <xs:element name="discount1" type="discount_content" minOccurs="0" />
+                                                <xs:element name="discount2" type="discount_content" minOccurs="0" />
+                                                <xs:element name="price_base" type="xs:string" minOccurs="0" />
+
+                        <xs:element name="installment" minOccurs="0" maxOccurs="unbounded">
+                          <xs:complexType>
+                            <xs:simpleContent>
+                              <xs:extension base="xs:double">
+                                <xs:attribute name="due_date" type="xs:string" />
+                              </xs:extension>
+                            </xs:simpleContent>
+                          </xs:complexType>
+                        </xs:element>
+
+                      </xs:sequence>
+
+                      <!-- payment terms attributes -->
+                      <xs:attributeGroup ref="id_desc_attr" />
+
+                    </xs:complexType>
+                  </xs:element>
+
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <!-- END amounts -->
+
+            <xs:element name="quantity" type="xs:double" minOccurs="0" />
+            <xs:element name="length" type="xs:double" minOccurs="0" />
+            <xs:element name="area" type="xs:double" minOccurs="0" />
+            <xs:element name="calulation_area" type="xs:double" minOccurs="0" />
+            <xs:element name="weight" type="xs:double" minOccurs="0" />
+
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!-- END document totals -->
+
+    </xs:sequence>
+
+    <!-- document attributes -->
+    <xs:attribute name="version" type="xs:string" />
+    <xs:attribute name="type" type="xs:string" />
+
+  </xs:complexType>
+</xs:element>
+<!-- END DOCUMENT: ROOT ELEMENT -->
+
+</xs:schema>
+<!-- END OF FILE -->
