@@ -27,7 +27,7 @@ public class CompanyApiExample {
         //    client.setApiKey("bearer 928c422d-30b0-44c0-8d98-812d64a397c3");
 
 
-   /*     CompanyApi apiInstance = new CompanyApi();
+        CompanyApi apiInstance = new CompanyApi();
         //   apiInstance.setApiClient( client);
         try {
             DkCloudDataModelSettingsSettingsModel result = apiInstance.companyGet();
@@ -37,61 +37,58 @@ public class CompanyApiExample {
             e.printStackTrace();
         }
 
-         // ------------------------ Customer  Begin-----------------------------------
+
+        // ------------------------ Customer  Begin-----------------------------------
         CustomerApi customer = new CustomerApi();
-
-        DkCloudDataModelCustomersCustomerModel customerModel = customer.customerGetCustomerById("0101010101");
-        String customerName =customerModel.getName();
-        Double balance = customerModel.getBalanceAmount();
-      //  String code = customerModel.getLedgerCode();
-
-        System.out.println("=== Name === Balance=== \n"+ customerName + "  -  "+ balance );
-
-
-*/
-
-
-         // ------------------------ Customer  End-----------------------------------
+        try {
+            DkCloudDataModelCustomersCustomerModel customerModel = customer.customerGetCustomerById("0101010101");// 10 digits numeric with folloving zero ( as an address1 String  in XML
+            String customerName = customerModel.getName();
+            Double balance = customerModel.getBalanceAmount();
+            System.out.println("=== Name === Balance=== \n" + customerName + "  -  " + balance);
+        } catch (ApiException e) {
+            System.err.println("--Costomer not found--");
+            // create a new customer from an XML
+            e.printStackTrace();
+        }
+        // ------------------------ Customer  End-----------------------------------
 
 
 
-
-
-
-
+        // ------------------------ Ledger Lines Begin-----------------------------------
         List<DkPlusAPIModelsGeneralLedgerLine> linesRN = new ArrayList<>();
         DkPlusAPIModelsGeneralLedgerLine dat1 = new DkPlusAPIModelsGeneralLedgerLine();
         DkPlusAPIModelsGeneralLedgerLine dat2 = new DkPlusAPIModelsGeneralLedgerLine();
         DkPlusAPIModelsGeneralLedgerLine dat3 = new DkPlusAPIModelsGeneralLedgerLine();
 
         OffsetDateTime t = OffsetDateTime.now();
+
         //  Line 1
-        dat1.setAccount("0003");// Bokhaldslykill or customer KT.
-        dat1.setVoucher("r3");
+        dat1.setAccount("0101010101");// Bokhaldslykill or customer KT.
+        // dat1.setVoucher("r3");
         dat1.setDate(t);
-        dat1.setAmount(6000.0); // Upphaed (kredit)
-        dat1.setText("Ispan 1"); // Texti
+        dat1.setAmount(8000.0); // Upphaed (kredit)
+        dat1.setText("Rn. 545454"); // Texti
         dat1.reference("test"); //Tilvisun
         dat1.setType(DkPlusAPIModelsGeneralLedgerLine.TypeEnum.CUSTOMER);// tegund - Fjarhagur (gengeral ledger)
 
 
-
         //  Line 2
-        dat2.setAccount("7620");
-        dat2.setVoucher("r3");
+        dat2.setAccount("1001");
+        // dat2.setVoucher("r3");
         dat2.setDate(t);
-        dat2.setAmount(-7000.0);
-        dat2.setText("Ispan 2 ");
+        dat2.setAmount(-9000.0);
+        dat2.setText("Rn. 545454");
         dat2.reference("test");
         dat2.setType(DkPlusAPIModelsGeneralLedgerLine.TypeEnum.GENERALLEDGER);
+
 
         // line 3
 
         dat3.setAccount("9531");
-        dat3.setVoucher("r3");
+        // dat3.setVoucher("r3");
         dat3.setDate(t);
         dat3.setAmount(1000.0);
-        dat3.setText("Ispan 2 ");
+        dat3.setText("Rn. 545454 ");
         dat3.reference("test");
         dat3.setType(DkPlusAPIModelsGeneralLedgerLine.TypeEnum.GENERALLEDGER);
 
@@ -99,7 +96,7 @@ public class CompanyApiExample {
         linesRN.add(dat1);
         linesRN.add(dat2);
         linesRN.add(dat3);
-
+        // ------------------------ Ledger Lines End -----------------------------------
 
 
         //================ Create Journal Begin ==================================
@@ -110,7 +107,8 @@ public class CompanyApiExample {
         op.setGenerateVoucher(true);
 
 
-        value.setDescription("Java test Ispan");
+        value.setDescription("Java Ispan v0.1");
+        value.code("ws");
         value.setOption(op);
         value.setLines(linesRN);
 
@@ -120,8 +118,6 @@ public class CompanyApiExample {
             System.err.println("Exception when calling GeneralLedgerApi#generalLedgerJournalGetGeneralLedgerJournal");
             e.printStackTrace();
         }
-
-
 
 
         //================ Create Journal End   ==================================
@@ -138,9 +134,7 @@ public class CompanyApiExample {
         ApiResponse respo = ledger.generalLedgerJournalGetGeneralLedgerJournalWithHttpInfo(head);*/
 
 
-    //    System.out.println("create journal data responce " + respo);
-
-
+        //    System.out.println("create journal data responce " + respo);
 
 
     }
