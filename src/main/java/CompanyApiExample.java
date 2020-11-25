@@ -41,14 +41,21 @@ public class CompanyApiExample {
         // ------------------------ Customer  Begin-----------------------------------
         CustomerApi customer = new CustomerApi();
         try {
-            DkCloudDataModelCustomersCustomerModel customerModel = customer.customerGetCustomerById("0101010101");// 10 digits numeric with folloving zero ( as an address1 String  in XML
+            DkCloudDataModelCustomersCustomerModel customerModel = customer.customerGetCustomerById("000333");// 10 digits numeric with folloving zero ( as an address1 String  in XML
             String customerName = customerModel.getName();
             Double balance = customerModel.getBalanceAmount();
             System.out.println("=== Name === Balance=== \n" + customerName + "  -  " + balance);
         } catch (ApiException e) {
             System.err.println("--Costomer not found--");
-            // create a new customer from an XML
+            // create a new customer from an XML if customer is not found in Accounting system
             e.printStackTrace();
+            DkCloudDataModelCustomersCustomerModel newCustomer = new DkCloudDataModelCustomersCustomerModel();
+            newCustomer.setName("Test Jón");
+            newCustomer.setNumber("000333");
+            newCustomer.setAddress1("Lund 4");
+
+            customer.customerCreateCustomer(newCustomer);
+            System.out.println("======Created a new customer======");
         }
         // ------------------------ Customer  End-----------------------------------
 
@@ -63,7 +70,7 @@ public class CompanyApiExample {
         OffsetDateTime t = OffsetDateTime.now();
 
         //  Line 1
-        dat1.setAccount("0101010101");// Bokhaldslykill or customer KT.
+        dat1.setAccount("000333");// Bokhaldslykill or customer KT.
         // dat1.setVoucher("r3");
         dat1.setDate(t);
         dat1.setAmount(8000.0); // Upphaed (kredit)
