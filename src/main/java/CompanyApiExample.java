@@ -38,6 +38,25 @@ public class CompanyApiExample {
         }
 
 
+
+        // ===================== Begin Fetch All customers with balance ==========================
+
+
+        CustomerApi apiInstance2 = new CustomerApi();
+        Boolean obj = true; // Boolean | Include Objects
+        String param = "Number,Name,BalanceAmount"; // String | Field to include
+
+
+        Customers customers = new Customers( obj,  param, apiInstance2);
+        customers.getCustomersList();
+
+
+        // ===================== End Fetch All customers with balance ==========================
+
+
+
+
+
         // ------------------------ Customer  Begin-----------------------------------
         CustomerApi customer = new CustomerApi();
         try {
@@ -119,14 +138,13 @@ public class CompanyApiExample {
         value.setOption(op);
         value.setLines(linesRN);
 
-        try {
+      /*  try {
             ledger.generalLedgerJournalGetGeneralLedgerJournal(value);
         } catch (ApiException e) {
             System.err.println("Exception when calling GeneralLedgerApi#generalLedgerJournalGetGeneralLedgerJournal");
             e.printStackTrace();
         }
-
-
+*/
         //================ Create Journal End   ==================================
 
 
