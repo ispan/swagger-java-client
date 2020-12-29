@@ -48,7 +48,7 @@ public class CompanyApiExample {
 
 
         Customers customers = new Customers( obj,  param, apiInstance2);
-        customers.getCustomersList();
+      //  customers.getCustomersList();
 
 
         // ===================== End Fetch All customers with balance ==========================
@@ -60,7 +60,7 @@ public class CompanyApiExample {
         // ------------------------ Customer  Begin-----------------------------------
         CustomerApi customer = new CustomerApi();
         try {
-            DkCloudDataModelCustomersCustomerModel customerModel = customer.customerGetCustomerById("000333");// 10 digits numeric with folloving zero ( as an address1 String  in XML
+            DkCloudDataModelCustomersCustomerModel customerModel = customer.customerGetCustomerById("1111464119");// 10 digits numeric with folloving zero ( as an address1 String  in XML
             String customerName = customerModel.getName();
             Double balance = customerModel.getBalanceAmount();
             System.out.println("=== Name === Balance=== \n" + customerName + "  -  " + balance);
@@ -70,8 +70,9 @@ public class CompanyApiExample {
             e.printStackTrace();
             DkCloudDataModelCustomersCustomerModel newCustomer = new DkCloudDataModelCustomersCustomerModel();
             newCustomer.setName("Test Jón");
-            newCustomer.setNumber("000333");
+            newCustomer.setNumber("1111464119");
             newCustomer.setAddress1("Lund 4");
+            newCustomer.setEmail("jon@ispan.is");
 
             customer.customerCreateCustomer(newCustomer);
             System.out.println("======Created a new customer======");
@@ -89,31 +90,31 @@ public class CompanyApiExample {
         OffsetDateTime t = OffsetDateTime.now();
 
         //  Line 1
-        dat1.setAccount("000333");// Bokhaldslykill or customer KT.
+        dat1.setAccount("1111464119");// Bokhaldslykill or customer KT.
         // dat1.setVoucher("r3");
         dat1.setDate(t);
-        dat1.setAmount(8000.0); // Upphaed (kredit)
+        dat1.setAmount(5000.0); // Upphaed (kredit)ITS AN INVOICE ( KREDIT NOTE - NEGATIVE AMMOUNT)
         dat1.setText("Rn. 545454"); // Texti
         dat1.reference("test"); //Tilvisun
         dat1.setType(DkPlusAPIModelsGeneralLedgerLine.TypeEnum.CUSTOMER);// tegund - Fjarhagur (gengeral ledger)
 
 
         //  Line 2
-        dat2.setAccount("1001");
+        dat2.setAccount("1001");// STEEINGS FOR ACCOUNT 1001 FLOKKUR U1
         // dat2.setVoucher("r3");
         dat2.setDate(t);
-        dat2.setAmount(-9000.0);
+        dat2.setAmount(-5000.0); // THIS IS THE INVOICE ( KREDIT NOTE - POSITIVE AMMOUNT)
         dat2.setText("Rn. 545454");
         dat2.reference("test");
         dat2.setType(DkPlusAPIModelsGeneralLedgerLine.TypeEnum.GENERALLEDGER);
 
 
-        // line 3
+        // line 3  DO NOT NEED - AUTO COMMIT FROM  ACCOUNT 1001
 
         dat3.setAccount("9531");
         // dat3.setVoucher("r3");
         dat3.setDate(t);
-        dat3.setAmount(1000.0);
+        dat3.setAmount(5000.0);
         dat3.setText("Rn. 545454 ");
         dat3.reference("test");
         dat3.setType(DkPlusAPIModelsGeneralLedgerLine.TypeEnum.GENERALLEDGER);
@@ -121,7 +122,7 @@ public class CompanyApiExample {
 
         linesRN.add(dat1);
         linesRN.add(dat2);
-        linesRN.add(dat3);
+     //   linesRN.add(dat3); // Flokkur - U1 bokhaldslykill 1001 automatically calc tax and wright it to 9531
         // ------------------------ Ledger Lines End -----------------------------------
 
 
@@ -138,13 +139,12 @@ public class CompanyApiExample {
         value.setOption(op);
         value.setLines(linesRN);
 
-      /*  try {
+        try {
             ledger.generalLedgerJournalGetGeneralLedgerJournal(value);
         } catch (ApiException e) {
             System.err.println("Exception when calling GeneralLedgerApi#generalLedgerJournalGetGeneralLedgerJournal");
             e.printStackTrace();
         }
-*/
         //================ Create Journal End   ==================================
 
 

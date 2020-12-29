@@ -1,4 +1,5 @@
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
@@ -31,6 +32,19 @@ public class Customers {
 
     }
 
+
+
+
+    //========================= Begin MIXIN ================================
+/*
+    public abstract class CustomerFormat{
+        @JsonFormat(shape = JsonFormat.Shape.NUMBER, pattern = "  ")
+        abstract String getNumber();
+    }*/
+//========================= End MIXIN ================================
+
+    char space = 32 ;
+
     public void getCustomersList() {
         try {
             List<DkCloudDataModelCustomersCustomerModel> result = apiInstance2.customerGetCustomers(obj, param);
@@ -41,12 +55,17 @@ public class Customers {
                     .addColumn("number")
                     // .addColumn("name")
                     .addColumn("balanceAmount")
+                    .setColumnSeparator(space)
                     .build();
+           // mapper.addMixInAnnotations(DkCloudDataModelCustomersCustomerModel.class,CustomerFormat.class);
 
-            ObjectWriter writer = mapper.writerFor(DkCloudDataModelCustomersCustomerModel.class).with(schema);
+
+           ObjectWriter writer = mapper.writerFor(DkCloudDataModelCustomersCustomerModel.class).with(schema);
 
 
             System.out.println("All cusotmers size: " + result.size());
+
+
 
 
             List<DkCloudDataModelCustomersCustomerModel> customersWithBalance = result.stream().filter(c -> c.getBalanceAmount() > 0).collect(Collectors.toList());
